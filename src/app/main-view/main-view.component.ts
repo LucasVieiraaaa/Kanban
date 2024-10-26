@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainViewComponent implements OnInit {
 
+  toDo: string = "To Do";
+  doing: string = "Doing";
+  done: string = "Done";
+  addCard: string = "Add Card";
+
   constructor() { }
 
   ngOnInit() {
