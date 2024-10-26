@@ -1,15 +1,23 @@
+:root{
+    --marginForContainer: 0;
+}
+
 .card-box{
     padding: 1.25em;
+    padding-top: 0;
     padding-bottom: 4em;;
-    margin: 2em;
+    margin: var(--marginForContainer);
     max-width: 365px;
-    height: clamp(400px,500px,800px);
+    height: auto;
     display: flex;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     border-radius: 0.5em;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    margin-top: 0;
 }
 
 .post-it-card{
@@ -19,8 +27,8 @@
     border-radius: 0.5em; 
     width: clamp(200px, 300px, 325px);
     height: auto;
-    word-wrap: break-word; /* Permite quebra de palavras longas */
-    overflow-wrap: break-word; /* Para suportar navegadores mais antigos */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 
     & p{
         margin-left: 0.8em;
@@ -37,13 +45,31 @@
 
 h1{
     font-size: 1.5em;
+    color: #ffffff;
+    text-align: center;
 }
 
 .kanban-row{
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap:wrap;
     align-content: center;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    gap: 2em;
+}
+
+.top-color{
+    background-color:#fab700 ;
+    max-width: 365px;
+    margin: var(--marginForContainer);
+    margin-bottom: 0em;
+    margin-top: 2em;
+    padding: 1.25em;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+}
+
+.display-background-kanban{
+    // display: ;
 }
