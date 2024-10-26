@@ -1,11 +1,11 @@
-:root{
+:root {
     --marginForContainer: 0;
 }
 
-.card-box{
-    padding: 1.25em;
+.card-box {
+    padding: 1em;
     padding-top: 0;
-    padding-bottom: 4em;;
+    padding-bottom: 4em;
     margin: var(--marginForContainer);
     max-width: 365px;
     height: auto;
@@ -20,56 +20,78 @@
     margin-top: 0;
 }
 
-.post-it-card{
+.post-it-card {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 0.5em;
     margin: 1em;
-    border-radius: 0.5em; 
+    border-radius: 0.5em;
     width: clamp(200px, 300px, 325px);
     height: auto;
     word-wrap: break-word;
     overflow-wrap: break-word;
 
-    & p{
+    & p {
         margin-left: 0.8em;
     }
 }
 
-.padding-0{
+.padding-0 {
     padding: 0;
 }
 
-.margin-0{
+.margin-0 {
     margin: 0;
 }
 
-h1{
-    font-size: 1.5em;
+h1 {
+    font-size: 1.4em;
     color: #ffffff;
     text-align: center;
 }
 
-.kanban-row{
+.kanban-row {
     display: flex;
     flex-direction: row;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     align-items: flex-start;
     gap: 2em;
 }
 
-.top-color{
-    background-color:#fab700 ;
+.top-color {
+    background-color: #fab700;
     max-width: 365px;
     margin: var(--marginForContainer);
     margin-bottom: 0em;
     margin-top: 2em;
-    padding: 1.25em;
+    padding: 0.5em;
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
 }
 
-.display-background-kanban{
+.display-background-kanban {
     // display: ;
+}
+
+.addition {
+    width: 300px;
+
+    border: 0px;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    transition: 0.3s;
+}
+
+.addition:hover {
+    background-color: #fab700;
+    color: #ffffff;
+}
+
+.small-p {
+    font-size: 1em;
+    gap: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
