@@ -2,13 +2,13 @@
     padding: 1.25em;
     padding-bottom: 4em;;
     margin: 2em;
-    max-width: 400px;
-    height: auto;
+    max-width: 365px;
+    height: clamp(400px,500px,800px);
     display: flex;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     border-radius: 0.5em;
 }
 
@@ -19,6 +19,8 @@
     border-radius: 0.5em; 
     width: clamp(200px, 300px, 325px);
     height: auto;
+    word-wrap: break-word; /* Permite quebra de palavras longas */
+    overflow-wrap: break-word; /* Para suportar navegadores mais antigos */
 
     & p{
         margin-left: 0.8em;
@@ -31,4 +33,17 @@
 
 .margin-0{
     margin: 0;
+}
+
+h1{
+    font-size: 1.5em;
+}
+
+.kanban-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
