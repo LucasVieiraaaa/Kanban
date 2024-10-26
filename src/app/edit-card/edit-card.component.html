@@ -1,0 +1,19 @@
+<div>
+  <div class="top-color">
+    <h1>{{getDescription()}}</h1>
+  </div>
+  <div class="first-padding">
+    <p>{{message}}</p>
+  </div>
+  <div class="div-for-mat-form-field">
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea style="    font-size: 0.9em;" matInput maxlength="300"></textarea>
+    </mat-form-field>
+  </div>
+  <div class="button-row">
+    <button class="cancel-button" (click)="closeDialog()">Cancel</button>
+    <button class="save-button">Save</button>
+  </div>
+
+</div>

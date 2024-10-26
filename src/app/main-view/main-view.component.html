@@ -6,7 +6,7 @@
     <div class="card-box">
       <ul class="padding-0 margin-0" *ngFor="let toDo of toDoList; let i = index">
         <div class="post-it-card"><p>{{toDo}}</p>
-          <mat-icon class="mat-icon-from-card edit-card">edit</mat-icon>
+          <mat-icon class="mat-icon-from-card edit-card" (click)="editToDo(i)">edit</mat-icon>
           <mat-icon class="mat-icon-from-card delete-card" (click)="deleteToDo(i)">delete</mat-icon>
         </div>
       </ul>

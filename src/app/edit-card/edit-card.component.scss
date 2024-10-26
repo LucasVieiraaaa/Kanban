@@ -1,0 +1,70 @@
+.top-color {
+    background-color: #fab700;
+    margin: var(--marginForContainer);
+    margin-bottom: 0em;
+    padding: 0.5em;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    & h1{
+        color: white;
+        font-size: 1.25em;
+        text-align: center;
+    }
+}
+
+p{
+    text-align: center;
+}
+
+.first-padding{
+    padding: 0.8em;
+}
+
+.div-for-mat-form-field{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    margin: 0.5em;
+
+    & mat-form-field{
+        width: 95%;
+    }
+}
+
+textarea{
+    height: auto;
+    max-height: 250px;
+    font-size: 0.9em;
+}
+
+mat-label{
+    font-size: 0.9em;
+}
+
+.button-row{
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+    padding: 2em;
+    gap: 1em;
+}
+
+.save-button{
+    background-color: #fab700;
+    border-radius: 0.8em;
+    padding: 0.5em;
+    color: #ffffff;
+    width: 25%;
+}
+
+.cancel-button{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 0.8em;
+    padding: 0.5em;
+    width: 25%;
+}
