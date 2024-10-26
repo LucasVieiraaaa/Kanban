@@ -5,7 +5,6 @@
 .card-box {
     padding: 1em;
     padding-top: 0;
-    padding-bottom: 4em;
     margin: var(--marginForContainer);
     max-width: 365px;
     height: auto;
@@ -24,6 +23,7 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 0.5em;
     margin: 1em;
+    margin-bottom: 0;
     border-radius: 0.5em;
     width: clamp(200px, 300px, 325px);
     height: auto;
@@ -32,6 +32,7 @@
 
     & p {
         margin-left: 0.8em;
+        margin-right: 0.8em;
     }
 }
 
@@ -76,7 +77,7 @@ h1 {
 
 .addition {
     width: 300px;
-
+    margin: 1.5em;
     border: 0px;
     border-radius: 0.5em;
     padding: 0.5em;

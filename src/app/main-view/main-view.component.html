@@ -4,26 +4,15 @@
       <h1>{{toDo}}</h1>
     </div>
     <div class="card-box">
-      <ul class="padding-0 margin-0">
+      <ul class="padding-0 margin-0" *ngFor="let toDo of toDoList">
         <div class="post-it-card">
-          <p>Teste</p>
-        </div>
-        <div class="post-it-card">
-          <p>Teste</p>
-        </div>
-        <div class="post-it-card">
-          <p>Teste</p>
-        </div>
-        <div class="post-it-card">
-          <p>Teste</p>
+          <p>{{toDo}}</p>
         </div>
       </ul>
       <div>
         <div>
-          <button class="addition">
-            <p class="small-p">
-              {{addCard}}<mat-icon>add</mat-icon>
-            </p>
+          <button class="addition"  (click)="addtoDo()">
+            <p class="small-p">{{addCard}}<mat-icon>add</mat-icon></p>
           </button>
         </div>
       </div>
@@ -35,23 +24,13 @@
       <h1>{{doing}}</h1>
     </div>
     <div class="card-box">
-      <ul class="padding-0 margin-0">
-        <div class="post-it-card">
-          <p>Teste</p>
-        </div>
-        <div class="post-it-card">
-          <p>Teste</p>
-        </div>
-        <div class="post-it-card">
-          <p>Teste</p>
-        </div>
+      <ul class="padding-0 margin-0" *ngFor="let doing of doingList">
+        <div class="post-it-card"><p>{{doing}}</p></div>
       </ul>
       <div>
         <div>
-          <button class="addition">
-            <p class="small-p">
-              {{addCard}}<mat-icon>add</mat-icon>
-            </p>
+          <button class="addition" (click)="addDoingList()">
+            <p class="small-p"> {{addCard}}<mat-icon>add</mat-icon></p>
           </button>
         </div>
       </div>
@@ -63,32 +42,13 @@
       <h1>{{done}}</h1>
     </div>
     <div class="card-box">
-      <ul class="padding-0 margin-0">
-        <div class="post-it-card">
-          <p>Teste</p>
-        </div>
-        <div class="post-it-card">
-          <p>Teste</p>
-        </div>
-        <div class="post-it-card">
-          <p>Teste</p>
-        </div>
-        <div class="post-it-card">
-          <p>Teste</p>
-        </div>
-        <div class="post-it-card">
-          <p>Teste</p>
-        </div>
-        <div class="post-it-card">
-          <p>Teste</p>
-        </div>
+      <ul class="padding-0 margin-0" *ngFor="let done of doneList">
+        <div class="post-it-card"><p>{{done}}</p></div>
       </ul>
       <div>
         <div>
-          <button class="addition">
-            <p class="small-p">
-              {{addCard}}<mat-icon>add</mat-icon>
-            </p>
+          <button class="addition" (click)="addDoneList()">
+            <p class="small-p">{{addCard}}<mat-icon>add</mat-icon></p>
           </button>
         </div>
       </div>
