@@ -25,10 +25,12 @@
     margin: 1em;
     margin-bottom: 0;
     border-radius: 0.5em;
-    width: clamp(200px, 300px, 325px);
+    width: 300px;
     height: auto;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    display: flex;
+    justify-content: flex-end;
 
     & p {
         margin-left: 0.8em;
@@ -95,4 +97,10 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.mat-icon-from-card{
+    padding-right: 1em;
+    font-size: 1.25em;
+    margin-top: 0.2em;
 }

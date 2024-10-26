@@ -5,8 +5,9 @@
     </div>
     <div class="card-box">
       <ul class="padding-0 margin-0" *ngFor="let toDo of toDoList">
-        <div class="post-it-card">
-          <p>{{toDo}}</p>
+        <div class="post-it-card"><p>{{toDo}}</p>
+          <mat-icon class="mat-icon-from-card">delete</mat-icon>
+          <mat-icon class="mat-icon-from-card">edit</mat-icon>
         </div>
       </ul>
       <div>
@@ -18,14 +19,16 @@
       </div>
     </div>
   </div>
-
   <div>
     <div class="top-color">
       <h1>{{doing}}</h1>
     </div>
     <div class="card-box">
       <ul class="padding-0 margin-0" *ngFor="let doing of doingList">
-        <div class="post-it-card"><p>{{doing}}</p></div>
+        <div class="post-it-card"><p>{{doing}}</p>
+          <mat-icon class="mat-icon-from-card">delete</mat-icon>
+          <mat-icon class="mat-icon-from-card">edit</mat-icon>
+        </div>
       </ul>
       <div>
         <div>
@@ -43,7 +46,10 @@
     </div>
     <div class="card-box">
       <ul class="padding-0 margin-0" *ngFor="let done of doneList">
-        <div class="post-it-card"><p>{{done}}</p></div>
+        <div class="post-it-card"><p>{{done}}</p>
+          <mat-icon class="mat-icon-from-card">delete</mat-icon>
+          <mat-icon class="mat-icon-from-card">edit</mat-icon>
+        </div>
       </ul>
       <div>
         <div>
