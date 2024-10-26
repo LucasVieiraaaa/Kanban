@@ -21,7 +21,6 @@ export class MainViewComponent implements OnInit {
      'Study about French language, and have a conversation'
     ]
 
-
   constructor() { }
 
   ngOnInit() {
@@ -42,4 +41,13 @@ export class MainViewComponent implements OnInit {
     this.doneList.push(x);
   }
 
+  deleteToDo(element: string){
+    const foundTask = this.toDoList.find(item => item === element);
+    if (foundTask) {
+        this.toDoList = this.toDoList.filter(item => item !== element);
+        console.log(`Task deleted: ${foundTask}`);
+    } else {
+        console.log('Task not found');
+    }
+  }
 }

@@ -104,3 +104,27 @@ h1 {
     font-size: 1.25em;
     margin-top: 0.2em;
 }
+
+.delte-card{
+    padding-right: 1em;
+    font-size: 1.25em;
+    margin-top: 0.2em;
+    transition: 0.3s;
+}
+
+.delete-card:hover{
+    color: #fa0036;
+    transition: 0.3s;
+}
+
+.edit-card{
+    padding-right: 1em;
+    font-size: 1.25em;
+    margin-top: 0.2em;
+    transition: 0.3s; 
+}
+
+.edit-card:hover{
+    color: #fab700;
+    transition: 0.3s;
+}
