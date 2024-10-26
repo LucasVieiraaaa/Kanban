@@ -41,13 +41,22 @@ export class MainViewComponent implements OnInit {
     this.doneList.push(x);
   }
 
-  deleteToDo(element: string){
-    const foundTask = this.toDoList.find(item => item === element);
-    if (foundTask) {
-        this.toDoList = this.toDoList.filter(item => item !== element);
-        console.log(`Task deleted: ${foundTask}`);
-    } else {
-        console.log('Task not found');
+  deleteToDo(index: number) {
+    if (index >= 0 && index < this.toDoList.length) {
+        this.toDoList.splice(index, 1);
     }
-  }
+}
+
+deleteDoingList(index: number) {
+    if (index >= 0 && index < this.doingList.length) {
+        this.doingList.splice(index, 1);
+    }
+}
+
+deleteDoneList(index: number) {
+    if (index >= 0 && index < this.doneList.length) {
+        this.doneList.splice(index, 1);
+    }
+}
+
 }
