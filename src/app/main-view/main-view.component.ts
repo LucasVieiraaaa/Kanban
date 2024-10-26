@@ -39,17 +39,17 @@ export class MainViewComponent implements OnInit {
   }
 
   addtoDo() {
-    let x = "New Card here, you can edit it"
+    let x = "New Card here"
     this.toDoList.push(x);
   }
 
   addDoingList() {
-    let x = "New Card here, you can edit it"
+    let x = "New Card here"
     this.doingList.push(x);
   }
 
   addDoneList() {
-    let x = "New Card here, you can edit it"
+    let x = "New Card here"
     this.doneList.push(x);
   }
 
@@ -78,6 +78,34 @@ export class MainViewComponent implements OnInit {
       width: '400px',maxWidth: '400px',
       height: 'auto', maxHeight: '500px',
       data: {card: cardKanbam, title: "To Do"},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  editDoingList(index: number){
+    let cardKanbam =this.doingList[index];
+
+    const dialogRef = this.dialog.open(EditCardComponent, {
+      width: '400px',maxWidth: '400px',
+      height: 'auto', maxHeight: '500px',
+      data: {card: cardKanbam, title: "Doing"},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  editDoneList(index: number){
+    let cardKanbam =this.doneList[index];
+
+    const dialogRef = this.dialog.open(EditCardComponent, {
+      width: '400px',maxWidth: '400px',
+      height: 'auto', maxHeight: '500px',
+      data: {card: cardKanbam, title: "Done"},
     });
 
     dialogRef.afterClosed().subscribe(result => {

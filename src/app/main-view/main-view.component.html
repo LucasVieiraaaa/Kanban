@@ -26,7 +26,7 @@
     <div class="card-box">
       <ul class="padding-0 margin-0" *ngFor="let doing of doingList; let i = index">
         <div class="post-it-card"><p>{{doing}}</p>
-          <mat-icon class="mat-icon-from-card edit-card">edit</mat-icon>
+          <mat-icon class="mat-icon-from-card edit-card" (click)="editDoingList(i)">edit</mat-icon>
           <mat-icon class="mat-icon-from-card delete-card" (click)="deleteDoingList(i)">delete</mat-icon>
         </div>
       </ul>
@@ -48,7 +48,7 @@
       <ul class="padding-0 margin-0" *ngFor="let done of doneList; let i = index">
         <div class="post-it-card">
           <p>{{done}}</p>
-          <mat-icon class="mat-icon-from-card edit-card">edit</mat-icon>
+          <mat-icon class="mat-icon-from-card edit-card" (click)="editDoneList(i)">edit</mat-icon>
           <mat-icon class="mat-icon-from-card delete-card" (click)="deleteDoneList(i)">delete</mat-icon>
       </div>
       </ul>
