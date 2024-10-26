@@ -11,23 +11,34 @@ export class EditCardComponent implements OnInit {
   readonly dialogRef = inject(MatDialogRef<EditCardComponent>);
   readonly data = inject<any>(MAT_DIALOG_DATA);
   title: string = '';
+  description: string = '';
   message: string = "";
+
+  textareaValue: string = '';
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.data)
     this.getDescription();
+    this.textareaValue = this.getCardDescription();
     this.message = "You are editing: " + this.data.card;
   }
 
-  getDescription() : string{
+  getCardDescription(): string {
+    this.description = this.data.card
+    return this.description
+  }
+
+  getDescription(): string {
     this.title = this.data.title
     return this.title
   }
 
-  closeDialog(): void {
-    this.dialogRef.close();
+  closeDialog() {
+    this.dialogRef.close(this.textareaValue);
   }
 
+  changeValueFromCard() {
+    this.dialogRef.close(this.textareaValue);
+  }
 }

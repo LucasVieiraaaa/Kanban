@@ -1,13 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import {
-  MAT_DIALOG_DATA,
-  MatDialog,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogRef,
-  MatDialogTitle,
-} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { EditCardComponent } from '../edit-card/edit-card.component';
 
 @Component({
@@ -76,12 +68,12 @@ export class MainViewComponent implements OnInit {
 
     const dialogRef = this.dialog.open(EditCardComponent, {
       width: '400px',maxWidth: '400px',
-      height: 'auto', maxHeight: '500px',
+      height: 'auto', maxHeight: '550px',
       data: {card: cardKanbam, title: "To Do"},
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.toDoList[index] = result;
     });
   }
 
@@ -90,12 +82,12 @@ export class MainViewComponent implements OnInit {
 
     const dialogRef = this.dialog.open(EditCardComponent, {
       width: '400px',maxWidth: '400px',
-      height: 'auto', maxHeight: '500px',
+      height: 'auto', maxHeight: '550px',
       data: {card: cardKanbam, title: "Doing"},
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.doingList[index] = result;
     });
   }
 
@@ -104,12 +96,12 @@ export class MainViewComponent implements OnInit {
 
     const dialogRef = this.dialog.open(EditCardComponent, {
       width: '400px',maxWidth: '400px',
-      height: 'auto', maxHeight: '500px',
+      height: 'auto', maxHeight: '550px',
       data: {card: cardKanbam, title: "Done"},
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.doneList[index] = result;
     });
   }
 }
