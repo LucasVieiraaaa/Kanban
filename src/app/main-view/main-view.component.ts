@@ -23,7 +23,7 @@ export class MainViewComponent implements OnInit {
   doneList: string[] = ['Learn Angular',
     'Create a repository on GitHub, so I can disclose my programming skills online',
     'Clean my VSCode cache',
-    'Fix \t"that" bug',
+    'Fix "that" bug',
     'Study about French language, and have a conversation'
   ]
   constructor() { }
@@ -99,7 +99,9 @@ export class MainViewComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.doingList[index] = result;
+      if(result.length > 0){
+        this.doingList[index] = result;
+      }
     });
   }
 
@@ -113,7 +115,9 @@ export class MainViewComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.doneList[index] = result;
+      if(result.length > 0){
+        this.doneList[index] = result;
+      }
     });
   }
 
