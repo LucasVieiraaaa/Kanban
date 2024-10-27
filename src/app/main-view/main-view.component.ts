@@ -88,7 +88,9 @@ export class MainViewComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.toDoList[index] = result;
+      if(result.length > 0){
+        this.toDoList[index] = result;
+      }
     });
   }
 
