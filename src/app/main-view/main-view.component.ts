@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EditCardComponent } from '../edit-card/edit-card.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-main-view',
@@ -15,6 +16,7 @@ export class MainViewComponent implements OnInit {
   doing: string = "Doing";
   done: string = "Done";
   addCard: string = "Add Card";
+  isDeleted: boolean = false;
 
   toDoList: string[] = ['Washe the dishes', 'Clean your room', 'Make biscuts', 'Study for the test']
   doingList: string[] = ['Update my resume', 'Report the excel ', 'Submit the excel']
@@ -47,29 +49,42 @@ export class MainViewComponent implements OnInit {
 
   deleteToDo(index: number) {
     if (index >= 0 && index < this.toDoList.length) {
-      this.toDoList.splice(index, 1);
+      let descrip = this.toDoList[index];
+      this.deleteConfirmation(index, this.toDoList);
     }
   }
 
   deleteDoingList(index: number) {
     if (index >= 0 && index < this.doingList.length) {
-      this.doingList.splice(index, 1);
+      let descrip = this.doingList[index];
+      this.deleteConfirmation(index, this.doingList);
+
     }
   }
 
   deleteDoneList(index: number) {
     if (index >= 0 && index < this.doneList.length) {
-      this.doneList.splice(index, 1);
+      let descrip = this.doingList[index];
+      this.deleteConfirmation(index, this.doneList);
     }
   }
 
-  editToDo(index: number){
-    let cardKanbam =this.toDoList[index];
+  deleteConfirmation(index: number, list: string[]) {
+    let descrip = list[index];
+    this.showAlertAreYouSure(descrip, index, list);
+  }
+  deleteFinalConfirmation(index: number, list: string[]) {
+    var cardList = list;
+    cardList.splice(index, 1)
+  }
+
+  editToDo(index: number) {
+    let cardKanbam = this.toDoList[index];
 
     const dialogRef = this.dialog.open(EditCardComponent, {
-      width: '400px',maxWidth: '400px',
+      width: '400px', maxWidth: '400px',
       height: 'auto', maxHeight: '550px',
-      data: {card: cardKanbam, title: "To Do"},
+      data: { card: cardKanbam, title: "To Do" },
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -77,13 +92,13 @@ export class MainViewComponent implements OnInit {
     });
   }
 
-  editDoingList(index: number){
-    let cardKanbam =this.doingList[index];
+  editDoingList(index: number) {
+    let cardKanbam = this.doingList[index];
 
     const dialogRef = this.dialog.open(EditCardComponent, {
-      width: '400px',maxWidth: '400px',
+      width: '400px', maxWidth: '400px',
       height: 'auto', maxHeight: '550px',
-      data: {card: cardKanbam, title: "Doing"},
+      data: { card: cardKanbam, title: "Doing" },
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -91,17 +106,55 @@ export class MainViewComponent implements OnInit {
     });
   }
 
-  editDoneList(index: number){
-    let cardKanbam =this.doneList[index];
+  editDoneList(index: number) {
+    let cardKanbam = this.doneList[index];
 
     const dialogRef = this.dialog.open(EditCardComponent, {
-      width: '400px',maxWidth: '400px',
+      width: '400px', maxWidth: '400px',
       height: 'auto', maxHeight: '550px',
-      data: {card: cardKanbam, title: "Done"},
+      data: { card: cardKanbam, title: "Done" },
     });
 
     dialogRef.afterClosed().subscribe(result => {
       this.doneList[index] = result;
+    });
+  }
+
+  showAlertAreYouSure(description: string, index: number, list: string[]) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: `Do you want to delete ${description}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      showConfirmButton: true,
+      cancelButtonColor: "#d33",
+      confirmButtonText: 'Sure thing!',
+      background: '#f4f4f4',
+      backdrop: true,
+      confirmButtonColor: '#fab700',
+      showClass: {
+        popup: '',
+      },
+      hideClass: {
+        popup: '',
+      }
+    }).then((result) => {
+
+      if (result.isConfirmed) {
+        this.isDeleted = true;
+        if (this.isDeleted == true) {
+          this.deleteFinalConfirmation(index, list)
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your card has been deleted.",
+            icon: "success",
+            confirmButtonColor: '#fab700',
+          });
+        }
+      }
+      else {
+        this.isDeleted = false;
+      }
     });
   }
 }

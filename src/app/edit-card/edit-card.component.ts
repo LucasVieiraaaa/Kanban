@@ -1,5 +1,6 @@
 import { Component, inject, model, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-card',
@@ -39,6 +40,48 @@ export class EditCardComponent implements OnInit {
   }
 
   changeValueFromCard() {
-    this.dialogRef.close(this.textareaValue);
+    if (this.textareaValue.length > 0) {
+      this.dialogRef.close(this.textareaValue);
+      this.showAlertOnSucess()
+    }
+    else {
+      this.showAlertOnError()
+    }
   }
+
+  showAlertOnError() {
+    Swal.fire({
+      title: 'Ops...',
+      text: 'The input you wrote is empty, please write the description',
+      icon: 'error',
+      confirmButtonText: 'Ok',
+      background: '#f4f4f4', 
+      backdrop: true,     
+      confirmButtonColor: '#fab700',    
+      showClass: {
+        popup: '',
+      },
+      hideClass: {
+        popup: '',
+      }
+    });
+  } 
+
+  showAlertOnSucess() {
+    Swal.fire({
+      title: 'Success',
+      text: 'The card was changed successfully',
+      icon: 'success',
+      confirmButtonText: 'Sure thing!',
+      background: '#f4f4f4', 
+      backdrop: true,     
+      confirmButtonColor: '#fab700',    
+      showClass: {
+        popup: '',
+      },
+      hideClass: {
+        popup: '',
+      }
+    });
+  } 
 }
