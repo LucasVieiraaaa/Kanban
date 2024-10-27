@@ -4,7 +4,7 @@
       <h1>{{toDo}}</h1>
     </div>
     <div class="card-box">
-      <ul class="padding-0 margin-0" *ngFor="let toDo of toDoList; let i = index">
+      <ul class="padding-0 margin-0" *ngFor="let toDo of toDoList; let i = index" cdkDrag>
         <div class="post-it-card"><p>{{toDo}}</p>
           <mat-icon class="mat-icon-from-card edit-card" (click)="editToDo(i)">edit</mat-icon>
           <mat-icon class="mat-icon-from-card delete-card" (click)="deleteToDo(i)">delete</mat-icon>
@@ -24,7 +24,7 @@
       <h1>{{doing}}</h1>
     </div>
     <div class="card-box">
-      <ul class="padding-0 margin-0" *ngFor="let doing of doingList; let i = index">
+      <ul class="padding-0 margin-0" *ngFor="let doing of doingList; let i = index" cdkDrag>
         <div class="post-it-card"><p>{{doing}}</p>
           <mat-icon class="mat-icon-from-card edit-card" (click)="editDoingList(i)">edit</mat-icon>
           <mat-icon class="mat-icon-from-card delete-card" (click)="deleteDoingList(i)">delete</mat-icon>
@@ -45,7 +45,7 @@
       <h1>{{done}}</h1>
     </div>
     <div class="card-box">
-      <ul class="padding-0 margin-0" *ngFor="let done of doneList; let i = index">
+      <ul class="padding-0 margin-0" *ngFor="let done of doneList; let i = index" cdkDrag>
         <div class="post-it-card">
           <p>{{done}}</p>
           <mat-icon class="mat-icon-from-card edit-card" (click)="editDoneList(i)">edit</mat-icon>
