@@ -11,13 +11,15 @@ import { EditCardComponent } from './edit-card/edit-card.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     MainViewComponent,
-    EditCardComponent
-  ],
+    EditCardComponent,
+    HeaderComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
