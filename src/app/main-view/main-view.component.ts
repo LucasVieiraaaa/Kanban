@@ -26,7 +26,6 @@ export class MainViewComponent implements OnInit {
     'Fix \t"that" bug',
     'Study about French language, and have a conversation'
   ]
-
   constructor() { }
 
   ngOnInit() {
@@ -49,22 +48,18 @@ export class MainViewComponent implements OnInit {
 
   deleteToDo(index: number) {
     if (index >= 0 && index < this.toDoList.length) {
-      let descrip = this.toDoList[index];
       this.deleteConfirmation(index, this.toDoList);
     }
   }
 
   deleteDoingList(index: number) {
     if (index >= 0 && index < this.doingList.length) {
-      let descrip = this.doingList[index];
       this.deleteConfirmation(index, this.doingList);
-
     }
   }
 
   deleteDoneList(index: number) {
     if (index >= 0 && index < this.doneList.length) {
-      let descrip = this.doingList[index];
       this.deleteConfirmation(index, this.doneList);
     }
   }
