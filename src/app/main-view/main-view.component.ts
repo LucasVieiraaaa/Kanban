@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EditCardComponent } from '../edit-card/edit-card.component';
 import Swal from 'sweetalert2';
-import { DragDrop } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, DragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-main-view',
@@ -158,5 +158,9 @@ export class MainViewComponent implements OnInit {
         this.isDeleted = false;
       }
     });
+  }
+  drop(event: CdkDragDrop<string[]>, list: string[]) {
+    moveItemInArray(list, event.previousIndex, event.currentIndex);
+    console.log(list);
   }
 }

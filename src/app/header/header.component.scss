@@ -5,9 +5,30 @@
     padding-left: 1.5em;
     margin-bottom: 1em;
     height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 img{
     max-width: 110px;
     border-radius: 1em;
+}
+
+.distance{
+    display: flex;
+    gap: 1.75em;
+    & a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1.1em;
+        border-bottom: 2px solid #eea301;
+        font-weight:500;
+    }
+
+    & a:hover{
+        color: #eea301;
+    }
+
 }
