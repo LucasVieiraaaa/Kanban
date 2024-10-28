@@ -1,18 +1,19 @@
-<div class="kanban-row">
+<div class="kanban-row" cdkDropListGroup>
   <div>
     <div class="top-color">
       <h1>{{toDo}}</h1>
     </div>
-    <div class="card-box" cdkDropList (cdkDropListDropped)="drop($event, toDoList)">
+    <div class="card-box"  cdkDropList [cdkDropListData]="toDoList" (cdkDropListDropped)="drop($event, toDoList)">
       <ul class="padding-0 margin-0 example-box" *ngFor="let toDo of toDoList; let i = index" cdkDrag>
-        <div class="post-it-card" ><p>{{toDo}}</p>
+        <div class="post-it-card">
+          <p>{{toDo}}</p>
           <mat-icon class="mat-icon-from-card edit-card" (click)="editToDo(i)">edit</mat-icon>
           <mat-icon class="mat-icon-from-card delete-card" (click)="deleteToDo(i)">delete</mat-icon>
         </div>
       </ul>
       <div>
         <div>
-          <button class="addition"  (click)="addtoDo()">
+          <button class="addition" (click)="addtoDo()">
             <p class="small-p">{{addCard}}<mat-icon>add</mat-icon></p>
           </button>
         </div>
@@ -23,9 +24,10 @@
     <div class="top-color">
       <h1>{{doing}}</h1>
     </div>
-    <div class="card-box" cdkDropList (cdkDropListDropped)="drop($event, doingList)">
+    <div class="card-box" cdkDropList [cdkDropListData]="doingList" (cdkDropListDropped)="drop($event, doingList)">
       <ul class="padding-0 margin-0" *ngFor="let doing of doingList; let i = index" cdkDrag>
-        <div class="post-it-card"><p>{{doing}}</p>
+        <div class="post-it-card">
+          <p>{{doing}}</p>
           <mat-icon class="mat-icon-from-card edit-card" (click)="editDoingList(i)">edit</mat-icon>
           <mat-icon class="mat-icon-from-card delete-card" (click)="deleteDoingList(i)">delete</mat-icon>
         </div>
@@ -44,13 +46,13 @@
     <div class="top-color">
       <h1>{{done}}</h1>
     </div>
-    <div class="card-box" cdkDropList (cdkDropListDropped)="drop($event, doneList)">
+    <div class="card-box"  cdkDropList  [cdkDropListData]="doneList" (cdkDropListDropped)="drop($event, doneList)">
       <ul class="padding-0 margin-0" *ngFor="let done of doneList; let i = index" cdkDrag>
         <div class="post-it-card">
           <p>{{done}}</p>
           <mat-icon class="mat-icon-from-card edit-card" (click)="editDoneList(i)">edit</mat-icon>
           <mat-icon class="mat-icon-from-card delete-card" (click)="deleteDoneList(i)">delete</mat-icon>
-      </div>
+        </div>
       </ul>
       <div>
         <div>
