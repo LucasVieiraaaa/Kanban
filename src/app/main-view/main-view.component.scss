@@ -144,3 +144,12 @@ h1 {
   ul{
     margin-top: 1em;
   }
+
+  .icon-align{
+    display: flex;
+    gap: 0.5em;
+  }
+
+  .post-it-card:hover{
+    cursor:grab;
+  }

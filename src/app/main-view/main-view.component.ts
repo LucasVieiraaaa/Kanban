@@ -19,14 +19,20 @@ export class MainViewComponent implements OnInit {
   addCard: string = "Add Card";
   isDeleted: boolean = false;
 
-  toDoList: string[] = ['Washe the dishes', 'Clean your room', 'Make biscuts', 'Study for the test']
-  doingList: string[] = ['Update my resume', 'Report the excel ', 'Submit the excel']
-  doneList: string[] = ['Learn Angular',
-    'Create a repository on GitHub, so I can disclose my programming skills online',
-    'Clean my VSCode cache',
-    'Fix "that" bug',
-    'Study about French language, and have a conversation'
-  ]
+  // toDoList: string[] = ['Washe the dishes', 'Clean your room', 'Make biscuts', 'Study for the test']
+  // doingList: string[] = ['Update my resume', 'Report the excel ', 'Submit the excel']
+  // doneList: string[] = ['Learn Angular',
+  //   'Create a repository on GitHub, so I can disclose my programming skills online',
+  //   'Clean my VSCode cache',
+  //   'Fix "that" bug',
+  //   'Study about French language, and have a conversation'
+  // ]
+
+  toDoList: string[] = [];
+  doingList: string[] = [];
+  doneList: string[] = [];
+
+
   constructor() { }
 
   loadFromLocalStorage() {

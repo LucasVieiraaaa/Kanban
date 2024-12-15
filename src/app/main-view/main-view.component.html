@@ -4,6 +4,9 @@
       <h1>{{toDo}}</h1>
     </div>
     <div class="card-box"  cdkDropList [cdkDropListData]="toDoList" (cdkDropListDropped)="drop($event, toDoList)">
+      <p class="icon-align" *ngIf="toDoList.length <= 0">This To Do list is empty
+        <mat-icon>info icon</mat-icon>
+      </p>
       <ul class="padding-0 margin-0 example-box" *ngFor="let toDo of toDoList; let i = index" cdkDrag>
         <div class="post-it-card">
           <p>{{toDo}}</p>
@@ -25,6 +28,9 @@
       <h1>{{doing}}</h1>
     </div>
     <div class="card-box" cdkDropList [cdkDropListData]="doingList" (cdkDropListDropped)="drop($event, doingList)">
+      <p class="icon-align" *ngIf="doingList.length <= 0">This Doing list is empty
+        <mat-icon>info icon</mat-icon>
+      </p>
       <ul class="padding-0 margin-0" *ngFor="let doing of doingList; let i = index" cdkDrag>
         <div class="post-it-card">
           <p>{{doing}}</p>
@@ -47,6 +53,9 @@
       <h1>{{done}}</h1>
     </div>
     <div class="card-box"  cdkDropList  [cdkDropListData]="doneList" (cdkDropListDropped)="drop($event, doneList)">
+      <p class="icon-align" *ngIf="doneList.length <= 0">This Done list is empty
+        <mat-icon>info icon</mat-icon>
+      </p>
       <ul class="padding-0 margin-0" *ngFor="let done of doneList; let i = index" cdkDrag>
         <div class="post-it-card">
           <p>{{done}}</p>
