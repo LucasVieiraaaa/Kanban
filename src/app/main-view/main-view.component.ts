@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EditCardComponent } from '../edit-card/edit-card.component';
 import Swal from 'sweetalert2';
-import { CdkDragDrop, DragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-main-view',
@@ -29,22 +29,38 @@ export class MainViewComponent implements OnInit {
   ]
   constructor() { }
 
+  loadFromLocalStorage() {
+    this.toDoList = JSON.parse(localStorage.getItem('toDoList') || '[]');
+    this.doingList = JSON.parse(localStorage.getItem('doingList') || '[]');
+    this.doneList = JSON.parse(localStorage.getItem('doneList') || '[]');
+  }
+
+  saveToLocalStorage() {
+    localStorage.setItem('toDoList', JSON.stringify(this.toDoList));
+    localStorage.setItem('doingList', JSON.stringify(this.doingList));
+    localStorage.setItem('doneList', JSON.stringify(this.doneList));
+  }
+
   ngOnInit() {
+    this.loadFromLocalStorage();
   }
 
   addtoDo() {
     let x = "New Card here"
     this.toDoList.push(x);
+    this.saveToLocalStorage();
   }
 
   addDoingList() {
     let x = "New Card here"
     this.doingList.push(x);
+    this.saveToLocalStorage();
   }
 
   addDoneList() {
     let x = "New Card here"
     this.doneList.push(x);
+    this.saveToLocalStorage();
   }
 
   deleteToDo(index: number) {
@@ -69,9 +85,11 @@ export class MainViewComponent implements OnInit {
     let descrip = list[index];
     this.showAlertAreYouSure(descrip, index, list);
   }
+  
   deleteFinalConfirmation(index: number, list: string[]) {
     var cardList = list;
-    cardList.splice(index, 1)
+    cardList.splice(index, 1);
+    this.saveToLocalStorage();
   }
 
   editToDo(index: number) {
@@ -102,6 +120,7 @@ export class MainViewComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result.length > 0){
         this.doingList[index] = result;
+        this.saveToLocalStorage();
       }
     });
   }
@@ -118,6 +137,7 @@ export class MainViewComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result.length > 0){
         this.doneList[index] = result;
+        this.saveToLocalStorage();
       }
     });
   }
@@ -170,5 +190,6 @@ export class MainViewComponent implements OnInit {
         event.currentIndex,
       );
     }
+    this.saveToLocalStorage();
   }
 }
